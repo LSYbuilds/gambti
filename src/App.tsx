@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Main from "./pages/Main";
+import GamTest from "./pages/GamTest";
+import Layout from './component/Layout';
+import GamInfo from './pages/GamInfo';
+import GamBoard from './pages/GamBoard';
+import NotFound from './pages/NotFound';
+import GamResult from './pages/GamResult';
+import TempIntro from './pages/TempIntro';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Main />}></Route>
+        <Route path="/gamTest" element={<GamTest />}></Route>
+        <Route path="/gamInfo" element={<GamInfo />}></Route>
+        <Route path="/gamBoard" element={<GamBoard />}></Route>
+        <Route path="/gamResult" element={<GamResult />}></Route>
+      </Route>
+      <Route path="/intro" element={<TempIntro />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 

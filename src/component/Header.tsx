@@ -1,13 +1,12 @@
 import React from 'react'
 import { HeaderWrap } from '../css/HeaderStyle'
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <HeaderWrap>
       <div className='inner'>
         <div className='logo'>
-          <Link to = "/" >로고닷</Link>
+          <Link to ="/" ></Link>
         </div>
         <ul className='navi'>
           <li>

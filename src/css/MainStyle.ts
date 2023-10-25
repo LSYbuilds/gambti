@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 
 export const MainStyleWrap = styled.div`
+padding-top: 100px;
 width: 100%;
-height: 5000px;
+height: auto;
 
 main{
     width: 100%;

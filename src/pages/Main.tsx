@@ -35,7 +35,7 @@ const Main = () => {
           </div>
           <div className="reco_games_list">
             <div className="pc_reco"></div>
-            <div className="console_reco"></div>
+            <div className="console_reco">DO TI</div>
             <div className="mobile_reco"></div>
           </div>
         </div>

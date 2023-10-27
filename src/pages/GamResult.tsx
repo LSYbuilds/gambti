@@ -1,12 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { GbtiInfo, GbtiInfoImg, ResultTitle } from '../css/ResultStyle';
 
 const GamResult = () => {
   return (
     <div>
-      게임결과
-      {/* 환경 설정 테스트 입니다 */}
+      <ResultTitle>
+        PC형 GAMBTI 검사
+        <p>결과</p>
+      </ResultTitle>
+      <GbtiInfo>
+        <p>GAMBTI 유형</p>
+        <p>NO Quest No Life</p>
+        <GbtiInfoImg />
+      </GbtiInfo>
     </div>
-  )
-}
+  );
+};
 
-export default GamResult
+export default GamResult;

@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MainpageWrap } from '../css/MainPageStyle';
+import { getRecoList } from '../api/MainFatch';
 
 const Main = () => {
+  const [recoGame, setRecoGame] = useState([]);
+  // 추천게임들 가져오기
+
+  // 메인컨텐츠 모든 데이터 가져오기
+  const getRecoGameData = () => {
+    getRecoList()
+      .then(recoData => {
+        setRecoGame(recoData);
+        console.log('추천 상품', recoData);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getRecoGameData();
+  }, []);
+
   return (
     <MainpageWrap>
       <div className="inner">
@@ -34,9 +54,15 @@ const Main = () => {
             <span className="banner_text">인기게임</span>
           </div>
           <div className="reco_games_list">
-            <div className="pc_reco"></div>
-            <div className="console_reco">DO TI</div>
-            <div className="mobile_reco"></div>
+            <ul className="pc_reco">
+              <li></li>
+            </ul>
+            <ul className="console_reco">
+              <li></li>
+            </ul>
+            <ul className="mobile_reco">
+              <li></li>
+            </ul>
           </div>
         </div>
       </div>

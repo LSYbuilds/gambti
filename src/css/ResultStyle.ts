@@ -4,11 +4,8 @@ const path = process.env.PUBLIC_URL;
 
 export const ResultTitle = styled.p`
   font-size: 40px;
+  color: rgba(79, 213, 255, 0.7);
   text-align: center;
-  p {
-    font-size: 30px;
-    text-align: center;
-  }
 `;
 
 export const GamResultInner = styled.div`
@@ -41,7 +38,7 @@ export const GamReultInfoInner = styled.div`
 `;
 
 export const ResultType = styled.div`
-  background: yellow;
+  background: rgba(79, 213, 255, 0.7);
   font-size: 30px;
   width: 1200px;
   height: auto;
@@ -49,18 +46,38 @@ export const ResultType = styled.div`
   margin: auto;
 `;
 
+export const GoodGamText = styled.div`
+  text-align: center;
+  span {
+    font-size: 40px;
+  }
+  p {
+    font-size: 25px;
+  }
+`;
+
+export const GoodGam = styled.div`
+  span {
+    font-size: 40px;
+  }
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin: 0 auto;
+`;
+
 export const ResultBtn = styled.div`
   display: flex;
-  margin: auto;
+  justify-content: space-between;
+  width: 40%;
+  margin: 0 auto;
   button {
-    justify-content: space-between;
-    margin: auto;
     background: #82d795;
     color: white;
     border: 0.5px solid;
     font-size: 24px;
     font-weight: 500;
-    width: 20%;
+    width: 45%;
     height: 50px;
     border-radius: 0.5rem;
     transition: 0.2s ease-in-out;

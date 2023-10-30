@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MainpageWrap } from '../css/MainPageStyle';
+import { getRecoGame } from '../api/mainFetch';
 
 const Main = () => {
+  const [recoGame, setRecoGame] = useState([]);
+
+  const getOrderList = async () => {
+    try {
+      const res = await getRecoGame();
+      setRecoGame(res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    void getOrderList();
+  }, []);
   return (
     <MainpageWrap>
       <div className="inner">

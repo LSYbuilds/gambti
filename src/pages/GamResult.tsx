@@ -1,19 +1,23 @@
 import React from 'react';
-import { GamResultInner, GbtiInfoImg, ResultTitle } from '../css/ResultStyle';
+import { ResultWrap , GamResultBox, GbtiInfoImg, ResultTitle } from '../css/ResultStyle';
 import GamResultInfo from '../component/GamResultInfo';
 
 const GamResult = () => {
   return (
-    <div>
-      <ResultTitle>PC형 GAMBTI 검사</ResultTitle>
-      <GamResultInner>
+    <ResultWrap>
+      <ResultTitle>
+        <p>PC형 GAMBTI 검사</p>
         <p>결과</p>
-        <p>GAMBTI 유형</p>
-        <p>NO Quest No Life</p>
+      </ResultTitle>
+      <GamResultBox>
+        <span>
+          <p>GAMBTI 유형</p>
+          <p>NO Quest No Life</p>
+        </span>
         <GbtiInfoImg />
-      </GamResultInner>
+      </GamResultBox>
       <GamResultInfo />
-    </div>
+    </ResultWrap>
   );
 };
 

@@ -2,35 +2,68 @@ import styled from '@emotion/styled';
 
 const path = process.env.PUBLIC_URL;
 
-export const ResultTitle = styled.p`
+export const ResultWrap = styled.div`
+  margin: 0 auto;
+  width: 1400px;
+  height: auto;
+`;
+
+export const ResultTitle = styled.div`
+  width: 100%;
+  text-shadow:
+    -1px 0px yellow,
+    0px 1px yellow,
+    1px 0px yellow,
+    0px -1px yellow;
+  padding: 20px 0px;
   font-size: 40px;
   color: rgba(79, 213, 255, 0.7);
   text-align: center;
 `;
 
-export const GamResultInner = styled.div`
-  text-align: center;
-  background: #fff6e9;
+export const GamResultBox = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgb(34, 195, 140);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 195, 140, 1) 0%,
+    rgba(110, 220, 186, 1) 30%,
+    rgba(205, 251, 225, 1) 95%
+  );
   font-size: 24px;
   margin: 0 auto;
   width: 1400px;
-  height: 100%;
+  height: 240px;
+  span {
+    text-align: center;
+    padding-bottom: 150px;
+    font-family: 'SUIT-Heavy';
+    P {
+      font-weight: bold;
+    }
+  }
 `;
 
 export const GbtiInfoImg = styled.div`
-  display: flex;
-  margin: auto;
-  margin-bottom: -50px;
-  width: 250px;
-  height: 250px;
-  border-radius: 700px;
+  position: absolute;
+  z-index: 300;
+  bottom: -50px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 210px;
+  height: 210px;
+  border-radius: 100%;
   background-position: center;
+  background-size: 100%;
   background-image: url(${path}/image/Result_Test.jpg);
 `;
 
 // GamResultInfo 컴포넌트
 export const GamReultInfoInner = styled.div`
-  background: #a7ebe8;
+  background: #d0e9ef;
   padding-top: 50px;
   margin: 0 auto;
   width: 1400px;
@@ -38,16 +71,22 @@ export const GamReultInfoInner = styled.div`
 `;
 
 export const ResultType = styled.div`
-  background: rgba(79, 213, 255, 0.7);
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.02) 0px 4px 6px,
+    rgba(0, 0, 0, 0.02) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
   font-size: 30px;
-  width: 1200px;
-  height: auto;
+  width: 90%;
+  padding: 30px 230px;
+  border-radius: 10px;
   text-align: center;
-  margin: auto;
+  margin: 0 auto;
 `;
 
 export const GoodGamText = styled.div`
-  text-align: center;
+  padding-top: 50px;
   span {
     font-size: 40px;
   }
@@ -61,9 +100,26 @@ export const GoodGam = styled.div`
     font-size: 40px;
   }
   display: flex;
-  text-align: center;
   flex-direction: column;
   margin: 0 auto;
+  ul {
+    text-align: left;
+    li {
+      .reco_game_img {
+        width: 300px;
+        height: 300px;
+        border-radius: 20px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        /* background-image: url(${path}/image/Result_Test.jpg);
+      background-repeat: no-repeat;
+      background-size: cover; */
+      }
+    }
+  }
 `;
 
 export const ResultBtn = styled.div`

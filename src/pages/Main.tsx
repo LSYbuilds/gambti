@@ -2,13 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { MainpageWrap } from '../css/MainPageStyle';
 import { getRecoGame } from '../api/mainFetch';
 
+interface recoGame {
+  rank: number;
+  name: string;
+  genre: string;
+  company: string;
+  img: string;
+}
+
+
 const Main = () => {
-  const [recoGame, setRecoGame] = useState([]);
+  const [recoGame, setRecoGame] = useState<recoGame[]>([]);
 
   const getOrderList = async () => {
     try {
       const res = await getRecoGame();
       setRecoGame(res);
+      console.log(res);
     } catch (err) {
       console.log(err);
     }
@@ -17,6 +27,7 @@ const Main = () => {
   useEffect(() => {
     void getOrderList();
   }, []);
+  
   return (
     <MainpageWrap>
       <div className="inner">

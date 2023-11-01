@@ -1,7 +1,8 @@
 import axios from "axios";
 
 
-const getRecoGame = async () => {
+// PC인기게임
+const getRecoGamePC = async () => {
     try {
       const res = await axios.get(`/api/game-ranking?platform=pc`);
       const data = res.data;
@@ -12,6 +13,31 @@ const getRecoGame = async () => {
     }
   };
 
+// 콘솔인기게임
+const getRecoGameConsole = async () => {
+  try{
+    const res = await axios.get(`/api/game-ranking?platform=console`);
+    const data = res.data;
+    return data;
+  }catch(error){
+    console.log(error);
+    return [];
+  }
+};
+
+const getRecoGameMobile = async () => {
+  try{
+    const res = await axios.get(`/api/game-ranking?platform=mobile`);
+    const data = res.data;
+    return data;
+  }catch(error){
+    console.log(error);
+    return [];
+  }
+}
+
   export {
-    getRecoGame,
+    getRecoGamePC,
+    getRecoGameConsole,
+    getRecoGameMobile,
   };

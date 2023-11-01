@@ -1,33 +1,63 @@
 import React, { useEffect, useState } from 'react';
-import { MainpageWrap } from '../css/MainPageStyle';
-import { getRecoGame } from '../api/mainFetch';
+import { MainpageWrap, RecoGames } from '../css/MainPageStyle';
+import {
+  getRecoGamePC,
+  getRecoGameConsole,
+  getRecoGameMobile,
+} from '../api/mainFetch';
 
 interface recoGame {
   rank: number;
-  name: string;
+  title: string;
   genre: string;
   company: string;
   img: string;
 }
 
-
 const Main = () => {
-  const [recoGame, setRecoGame] = useState<recoGame[]>([]);
+  // PC인기
+  const [recoGamePC, setRecoGamePC] = useState<recoGame[]>([]);
+  // 콘솔인기
+  const [recoGameConsole, setRecoGameConsole] = useState<recoGame[]>([]);
+  // 모버일인기
+  const [recoGameMobile, setRecoGameMobile] = useState<recoGame[]>([]);
 
-  const getOrderList = async () => {
+  const RecoGamePC = async () => {
     try {
-      const res = await getRecoGame();
-      setRecoGame(res);
-      console.log(res);
+      const res = await getRecoGamePC();
+      setRecoGamePC(res);
+      console.log('피시인기', res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const RecoGameMobile = async () => {
+    try {
+      const res = await getRecoGameConsole();
+      setRecoGameConsole(res);
+      console.log('모바일인기', res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const RecoGameConsole = async () => {
+    try {
+      const res = await getRecoGameMobile();
+      setRecoGameMobile(res);
+      console.log('콘솔인기', res);
     } catch (err) {
       console.log(err);
     }
   };
 
   useEffect(() => {
-    void getOrderList();
+    void RecoGamePC();
+    void RecoGameMobile();
+    void RecoGameConsole();
   }, []);
-  
+
   return (
     <MainpageWrap>
       <div className="inner">
@@ -53,19 +83,57 @@ const Main = () => {
           </div>
         </div>
       </div>
-      <div className="reco_games">
+      <RecoGames>
         <div className="reco_games_inner">
           <div className="reco_banner">
             <div className="banner_logo"></div>
             <span className="banner_text">인기게임</span>
           </div>
-          <div className="reco_games_list">
-            <div className="pc_reco"></div>
+          <div className="reco_game_list">
+            <div className="pc_reco">
+              <span className="list_title">PC 인기게임</span>
+              <ul className="column_text">
+                <li>순위</li>
+                <li>게임명</li>
+              </ul>
+              <ul className="game_list">
+                {recoGamePC.map((item, index) => (
+                  <li key={index}>
+                    <div className="info">
+                      <span className="rank">{item.rank}</span>
+                      <span className="desc">
+                        <p>{item.title}</p>
+                        <p>{item.genre}</p>
+                        <p>{item.company}</p>
+                      </span>
+                    </div>
+                    <div className="game_img">
+                      <img></img>
+                    </div>
+                  </li>
+                ))}
+                {/* <li>
+                  <div className="info">
+                    <span className='rank'>
+                      1
+                    </span>
+                    <span className='desc'>
+                      <p>asdsa</p>
+                      <p>asdsad</p>
+                      <p>asdd</p>
+                    </span>
+                  </div>
+                  <div className='game_img'>
+                    <img></img>
+                  </div>
+                </li> */}
+              </ul>
+            </div>
             <div className="console_reco"></div>
             <div className="mobile_reco"></div>
           </div>
         </div>
-      </div>
+      </RecoGames>
     </MainpageWrap>
   );
 };

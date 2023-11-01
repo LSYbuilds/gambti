@@ -13,7 +13,7 @@ const GamResultInfo = () => {
       <ResultType>
         과묵하며 절제된 호기심으로 인생을 관찰하고, 상황을 파악하는 민감성과
         도구를 다루는 뛰어난 능력이 있다. 말수가 적으며 객관적으로 합리적으로
-        인생을 관찰하는 유형이다
+        인생을 관찰하는 유형이다.
       </ResultType>
       <GoodGamText>
         <span>GAMBTI 분석</span>

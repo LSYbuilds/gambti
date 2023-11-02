@@ -117,10 +117,15 @@ export const RecoGames = styled.div`
       }
     }
     .reco_game_list {
+      margin-top: 15px;
       display: flex;
       flex-direction: column;
+      gap: 50px;
       width: 100%;
       height: auto;
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
       div {
         display: flex;
         flex-direction: column;
@@ -130,7 +135,7 @@ export const RecoGames = styled.div`
           display: block;
           width: 100%;
           padding: 15px 0px;
-          font-size: 1.2em;
+          font-size: 1.5em;
         }
         .column_text {
           display: grid;
@@ -147,27 +152,31 @@ export const RecoGames = styled.div`
           }
         }
         .game_list{
+          margin-top: 15px;
           display: flex;
           flex-direction: column;
+          gap: 15px;
           width: 100%;
           height: auto;
+
           li{
             display: flex;
             justify-content: flex-start;
             width: 100%;
-            height: 125px;
-            background: gainsboro;
+            height: 150px;
+            padding: 15px;
+            border: 1px solid #C5C5C5;
+            border-radius: 15px;
             .info{
               display: flex;
               flex-direction: row;
               width: 90%;
               height: 100%;
-              background: skyblue;
               .rank{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                width: 8%;
+                width: 5%;
                 height: 100%;
                 text-align: center;
                 font-size: 1.3em;
@@ -179,10 +188,20 @@ export const RecoGames = styled.div`
                 width: 90%;
                 height: 100%;
                 padding: 0px 30px;
+                p{
+                  &:first-child{
+                    font-size: 1.4em;
+                  }
+                }
               }
             }
             .game_img{
               width: 10%;
+              border-radius: 15px;
+              overflow: hidden;
+              img{
+                height: 100%;
+              }
             }
           }
         }

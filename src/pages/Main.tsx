@@ -34,8 +34,8 @@ const Main = () => {
 
   const RecoGameMobile = async () => {
     try {
-      const res = await getRecoGameConsole();
-      setRecoGameConsole(res);
+      const res = await getRecoGameMobile();
+      setRecoGameMobile(res);
       console.log('모바일인기', res);
     } catch (err) {
       console.log(err);
@@ -44,8 +44,8 @@ const Main = () => {
 
   const RecoGameConsole = async () => {
     try {
-      const res = await getRecoGameMobile();
-      setRecoGameMobile(res);
+      const res = await getRecoGameConsole();
+      setRecoGameConsole(res);
       console.log('콘솔인기', res);
     } catch (err) {
       console.log(err);
@@ -108,29 +108,60 @@ const Main = () => {
                       </span>
                     </div>
                     <div className="game_img">
-                      <img></img>
+                      <img src={item.img}></img>
                     </div>
                   </li>
                 ))}
-                {/* <li>
-                  <div className="info">
-                    <span className='rank'>
-                      1
-                    </span>
-                    <span className='desc'>
-                      <p>asdsa</p>
-                      <p>asdsad</p>
-                      <p>asdd</p>
-                    </span>
-                  </div>
-                  <div className='game_img'>
-                    <img></img>
-                  </div>
-                </li> */}
               </ul>
             </div>
-            <div className="console_reco"></div>
-            <div className="mobile_reco"></div>
+            <div className="console_reco">
+            <span className="list_title">콘솔 인기게임</span>
+              <ul className="column_text">
+                <li>순위</li>
+                <li>게임명</li>
+              </ul>
+              <ul className="game_list">
+                {recoGameConsole.map((item, index) => (
+                  <li key={index}>
+                    <div className="info">
+                      <span className="rank">{item.rank}</span>
+                      <span className="desc">
+                        <p>{item.title}</p>
+                        <p>{item.genre}</p>
+                        <p>{item.company}</p>
+                      </span>
+                    </div>
+                    <div className="game_img">
+                      <img src={item.img}></img>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mobile_reco">
+            <span className="list_title">모바일 인기게임</span>
+              <ul className="column_text">
+                <li>순위</li>
+                <li>게임명</li>
+              </ul>
+              <ul className="game_list">
+                {recoGameMobile.map((item, index) => (
+                  <li key={index}>
+                    <div className="info">
+                      <span className="rank">{item.rank}</span>
+                      <span className="desc">
+                        <p>{item.title}</p>
+                        <p>{item.genre}</p>
+                        <p>{item.company}</p>
+                      </span>
+                    </div>
+                    <div className="game_img">
+                      <img src={item.img}></img>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </RecoGames>

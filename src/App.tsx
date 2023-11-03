@@ -13,11 +13,11 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/" element={<Main />}></Route>
-        <Route path="/gamTest" element={<GamTest />}></Route>
-        <Route path="/gamInfo" element={<GamInfo />}></Route>
-        <Route path="/gamBoard" element={<GamBoard />}></Route>
-        <Route path="/gamResult" element={<GamResult />}></Route>
+        <Route path="" element={<Main />}></Route>
+        <Route path="gamTest" element={<GamTest />}></Route>
+        <Route path="gamInfo" element={<GamInfo />}></Route>
+        <Route path="gamBoard" element={<GamBoard />}></Route>
+        <Route path="gamResult" element={<GamResult />}></Route>
       </Route>
       <Route path="/intro" element={<TempIntro />} />
       <Route path="*" element={<NotFound />} />

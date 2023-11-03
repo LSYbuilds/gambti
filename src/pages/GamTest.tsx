@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { GamTestWrap } from '../css/GamTestStyle'
+import GamTestNotice from '../component/GamTestNotice'
+import GamSurvey from '../component/GamSurvey'
 
 const GamTest = () => {
+  const [NoteCheck , setNoteCheck] = useState(true);
+  const [Survey , setSurvey] = useState(false);
   return (
-    <div>
-      겜비티아이 검사
-    </div>
+    <GamTestWrap>
+      <div className='inner'>
+        <GamTestNotice />
+        <GamSurvey />
+      </div>
+    </GamTestWrap>
   )
 }
 

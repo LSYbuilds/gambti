@@ -1,7 +1,11 @@
 import React from 'react'
 import { GameTestIntroWrap } from '../css/GamTestStyle';
 
-const GamTestIntro = () => {
+interface Props {
+  setDisplay: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const GamTestIntro = ({ setDisplay }: Props) => {
   return (
     <GameTestIntroWrap>
       <h3>GAMBTI 검사</h3>
@@ -12,7 +16,7 @@ const GamTestIntro = () => {
         따라서 실제 MBTI하고는 무관하며 추천해주는 게임과 <br />
         실제 MBTI 성향하고 맞지 않을 수 있음을 유의바랍니다.
       </p>
-      <button onClick={() => { alert('다음 화면으로'); }}>시작하기</button>
+      <button onClick={() => { setDisplay(false); }}>시작하기</button>
     </GameTestIntroWrap>
   )
 }

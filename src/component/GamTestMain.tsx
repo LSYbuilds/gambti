@@ -13,8 +13,10 @@ const GamTestMain = () => {
           </div>
         </div>
         <div className="progress-dot"></div>
-        <button className="answer-box">예</button>
-        <button className="answer-box">아니오</button>
+        <div className="answer-box">
+          <button className="answer-btn">예</button>
+          <button className="answer-btn">아니오</button>
+        </div>
       </div>
     </GamTestMainWrap>
   )

@@ -65,6 +65,17 @@ export const GameTestIntroWrap = styled.div`
   }
 `;
 
+const commonBox = `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  border: none;
+  width: 96%;
+  height: 24%;
+  border-radius: 15px;
+  font-size: 1.15rem;
+`
 export const GamTestMainWrap = styled.div`
   padding: 20px;
   border-radius: 15px;
@@ -92,34 +103,29 @@ export const GamTestMainWrap = styled.div`
         height: 50%;
       }
       .question-box {
+        ${commonBox};
         position: absolute;
         left: 50%;
         bottom: 10px;
-        width: 96%;
-        height: 24%;
-        border-radius: 15px;
-        background-color: rgb(217 217 217 / 50%);
-        font-size: 1.15rem;
         transform: translateX(-50%);
-        &::hover {
+        background-color: rgb(217 217 217 / 50%);
+        &:hover {
           background-color: rgb(217 217 217 / 50%);
         }
       }
     }
-
-    .question-box, .answer-box {
+    .answer-box {
+      padding: 40px 0;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 10px auto;
-      border: none;
-      width: 96%;
-      height: 24%;
-      border-radius: 15px;
-      background-color: rgb(217 217 217 / 50%);
-      font-size: 1.15rem;
-      &::hover {
-        background-color: rgb(45 105 194 / 50%);
+      flex-direction: column;
+      gap: 20px;
+      .answer-btn {
+        ${commonBox};
+        padding: 20px 0;
+        background-color: rgb(101 101 101 / 50%);
+        &:hover {
+          background-color: rgb(45 105 194 / 50%);
+        }
       }
     }
   }

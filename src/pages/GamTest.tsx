@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import GamTestIntro from '../component/GamTestIntro'
+import GamTestMain from '../component/GamTestMain';
+import { GamTestWrap } from '../css/GamTestStyle';
 
 const GamTest = () => {
   const [display, setDisplay] = useState<boolean>(true);
 
   return (
-    <div>
+    <GamTestWrap>
       {display && <GamTestIntro setDisplay={setDisplay} />}
-    </div>
+      {display || <GamTestMain />}
+    </GamTestWrap>
   )
 }
 

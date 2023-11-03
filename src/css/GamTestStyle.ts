@@ -2,10 +2,14 @@ import styled from '@emotion/styled';
 
 const path = process.env.PUBLIC_URL;
 
-export const GameTestIntroWrap = styled.div`
+export const GamTestWrap = styled.div`
   width: 80%;
   height: 70%;
   margin: 20px auto;
+  padding: 10px;
+`;
+
+export const GameTestIntroWrap = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -16,6 +20,7 @@ export const GameTestIntroWrap = styled.div`
   font-size: 1.2rem;
 
   position: relative;
+  z-index: 5;
   &::after{
     content: "";
     opacity: 0.5;
@@ -57,5 +62,65 @@ export const GameTestIntroWrap = styled.div`
     background-color: #CBF9FF;
     font-size: 1.4rem;
     font-weight: 700;
+  }
+`;
+
+export const GamTestMainWrap = styled.div`
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #F0F0F0;
+  
+  .inner {
+    width: 86%;
+    margin: 0 auto;
+    padding: 20px 0;
+    position: relative;
+    .question-number {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 0;
+    }
+    .image-box {
+      position: relative;
+      width: 100%;
+      height: 90%;
+      border-radius: 15px;
+      box-shadow: 5px 5px 5px 1px #777777;
+      img {
+        width: 100%;
+        height: 50%;
+      }
+      .question-box {
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        width: 96%;
+        height: 24%;
+        border-radius: 15px;
+        background-color: rgb(217 217 217 / 50%);
+        font-size: 1.15rem;
+        transform: translateX(-50%);
+        &::hover {
+          background-color: rgb(217 217 217 / 50%);
+        }
+      }
+    }
+
+    .question-box, .answer-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px auto;
+      border: none;
+      width: 96%;
+      height: 24%;
+      border-radius: 15px;
+      background-color: rgb(217 217 217 / 50%);
+      font-size: 1.15rem;
+      &::hover {
+        background-color: rgb(45 105 194 / 50%);
+      }
+    }
   }
 `;

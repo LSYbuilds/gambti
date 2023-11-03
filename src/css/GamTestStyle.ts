@@ -130,3 +130,16 @@ export const GamTestMainWrap = styled.div`
     }
   }
 `;
+
+export const GamTestProgress = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 4px;
+  .progress-dot {
+    width: 21px;
+    height: 8px;
+    border-radius: 30px;
+    background-color: #B6BDFA;
+  }
+`;

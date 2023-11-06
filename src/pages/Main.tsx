@@ -91,16 +91,16 @@ const Main = () => {
           </div>
           <div className="reco_game_list">
             <div className="pc_reco">
-              <span className="list_title">PC 인기게임</span>
-              <ul className="column_text">
-                <li>순위</li>
-                <li>게임명</li>
-              </ul>
+              <div className="list_title">
+                <div className="title_img">
+                  <img src="image/pc.png"></img>
+                </div>
+                <span>PC 인기게임</span>
+              </div>
               <ul className="game_list">
                 {recoGamePC.map((item, index) => (
                   <li key={index}>
                     <div className="info">
-                      <span className="rank">{item.rank}</span>
                       <span className="desc">
                         <p>{item.title}</p>
                         <p>{item.genre}</p>
@@ -115,16 +115,16 @@ const Main = () => {
               </ul>
             </div>
             <div className="console_reco">
-            <span className="list_title">콘솔 인기게임</span>
-              <ul className="column_text">
-                <li>순위</li>
-                <li>게임명</li>
-              </ul>
+              <div className="list_title">
+                <div className="title_img">
+                  <img src="image/console.png"></img>
+                </div>
+                <span>콘솔 인기게임</span>
+              </div>
               <ul className="game_list">
                 {recoGameConsole.map((item, index) => (
                   <li key={index}>
                     <div className="info">
-                      <span className="rank">{item.rank}</span>
                       <span className="desc">
                         <p>{item.title}</p>
                         <p>{item.genre}</p>
@@ -139,16 +139,16 @@ const Main = () => {
               </ul>
             </div>
             <div className="mobile_reco">
-            <span className="list_title">모바일 인기게임</span>
-              <ul className="column_text">
-                <li>순위</li>
-                <li>게임명</li>
-              </ul>
+              <div className="list_title">
+                <div className="title_img">
+                  <img src="image/mobile.png"></img>
+                </div>
+                <span>모바일 인기게임</span>
+              </div>
               <ul className="game_list">
                 {recoGameMobile.map((item, index) => (
                   <li key={index}>
                     <div className="info">
-                      <span className="rank">{item.rank}</span>
                       <span className="desc">
                         <p>{item.title}</p>
                         <p>{item.genre}</p>

@@ -1,48 +1,105 @@
-import React from 'react';
-import { Container, GameInfoTitle } from '../css/GameInfoStyle';
+import React, { useState } from 'react';
+import { Container, GamInfoWarp, GameInfoTitle } from '../css/GameInfoStyle';
+import GambtiInfoModal from '../modal/GambtiInfoModal';
 
 const GamInfo = () => {
+  interface GambtiModalProps {
+    modal: boolean;
+    isModal: boolean;
+  }
+  const [ismodal, setOpenModal] = useState<boolean>(false);
   return (
-    <div>
-      <GameInfoTitle>
-        <span>GAMBTI 유형</span>
-        자신의 MBTI 유형에 맞는 정보를 알아 봅시다 ! !
-      </GameInfoTitle>
-      <Container>
-        <div className="item">
-          <img src="image/Result_Test.jpg" alt="눈치.." />
-          <p>E 외향형 Extraverstion</p>
-        </div>
-        <div className="item">
-          <img src="image/Result_Test.jpg" alt="눈치.." />
-          <p>S 감각형 Sensing</p>
-        </div>
-        <div className="item">
-          <img src="image/Result_Test.jpg" alt="눈치.." />
-          <p>T 사고형 Thinking</p>
-        </div>
-        <div className="item">
-          <img src="image/Result_Test.jpg" alt="눈치.." />
-          <p>J 판단형 Judging</p>
-        </div>
-        <div className="item">
-          <img src="image/Result_Test.jpg" alt="눈치.." />
-          <p>I 내향형 Introversion</p>
-        </div>
-        <div className="item">
-          <img src="image/Result_Test.jpg" alt="눈치.." />
-          <p>N 직관형 iNtuition</p>
-        </div>
-        <div className="item">
-          <img src="image/Result_Test.jpg" alt="눈치.." />
-          <p>F 감정형 Feeling</p>
-        </div>
-        <div className="item">
-          <img src="image/Result_Test.jpg" alt="눈치.." />
-          <p>P 인식형 Perceiving</p>
-        </div>
-      </Container>
-    </div>
+    <GamInfoWarp>
+      {ismodal && (<GambtiInfoModal/>) }
+      <div className="inner">
+        <GameInfoTitle>
+          <span>GAMBTI 유형</span>
+          자신의 MBTI 유형에 맞는 정보를 알아 봅시다 ! !
+        </GameInfoTitle>
+        <Container>
+          <div className="item">
+            <div className="item_img">
+              <img src="image/mbti/E.png" alt="눈치.." />
+            </div>
+            <span>
+              E 외향형
+              <br />
+              Extraverstion
+            </span>
+          </div>
+          <div className="item">
+            <div className="item_img">
+              <img src="image/mbti/S.png" alt="눈치.." />
+            </div>
+            <span>
+              S 감각형
+              <br />
+              Sensing
+            </span>
+          </div>
+          <div className="item">
+            <div className="item_img">
+              <img src="image/mbti/T.png" alt="눈치.." />
+            </div>
+            <span>
+              T 사고형
+              <br />
+              Thinking
+            </span>
+          </div>
+          <div className="item">
+            <div className="item_img">
+              <img src="image/mbti/J.png" alt="눈치.." />
+            </div>
+            <span>
+              J 판단형
+              <br />
+              Judging
+            </span>
+          </div>
+          <div className="item">
+            <div className="item_img">
+              <img src="image/mbti/I.png" alt="눈치.." />
+            </div>
+            <span>
+              I 내향형
+              <br />
+              Introversion
+            </span>
+          </div>
+          <div className="item">
+            <div className="item_img">
+              <img src="image/mbti/N.png" alt="눈치.." />
+            </div>
+            <span>
+              N 직관형
+              <br />
+              iNtuition
+            </span>
+          </div>
+          <div className="item">
+            <div className="item_img">
+              <img src="image/mbti/F.png" alt="눈치.." />
+            </div>
+            <span>
+              F 감정형
+              <br />
+              Feeling
+            </span>
+          </div>
+          <div className="item">
+            <div className="item_img">
+              <img src="image/mbti/P.png" alt="눈치.." />
+            </div>
+            <span>
+              P 인식형
+              <br />
+              Perceiving
+            </span>
+          </div>
+        </Container>
+      </div>
+    </GamInfoWarp>
   );
 };
 

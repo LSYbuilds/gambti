@@ -119,8 +119,8 @@ export const RecoGames = styled.div`
     .reco_game_list {
       margin-top: 15px;
       display: flex;
-      flex-direction: column;
-      gap: 50px;
+      justify-content: space-around;
+      gap: 10px;
       width: 100%;
       height: auto;
       background: #fff;
@@ -129,15 +129,35 @@ export const RecoGames = styled.div`
       div {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 33.33%;
         height: auto;
         .list_title {
-          display: block;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 5px;
+          justify-content: center;
           width: 100%;
-          padding: 15px 0px;
-          font-size: 1.5em;
+          height: 50px;
+          .title_img{
+            width: auto;
+            height: 65%;
+            img{
+              height: 100%;
+            }
+          }
+          span{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+            font-size: 1.3em;
+            text-align: center;
+            font-family: 'SUIT-Bold';
+          }
         }
-        .column_text {
+        /* .column_text {
           display: grid;
           grid-template-columns: 100px 100px;
           width: 100%;
@@ -150,7 +170,7 @@ export const RecoGames = styled.div`
             justify-content: center;
             text-align: center;
           }
-        }
+        } */
         .game_list{
           margin-top: 15px;
           display: flex;
@@ -161,7 +181,7 @@ export const RecoGames = styled.div`
 
           li{
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             width: 100%;
             height: 150px;
             padding: 15px;
@@ -170,24 +190,14 @@ export const RecoGames = styled.div`
             .info{
               display: flex;
               flex-direction: row;
-              width: 90%;
+              width: 50%;
               height: 100%;
-              .rank{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                width: 5%;
-                height: 100%;
-                text-align: center;
-                font-size: 1.3em;
-              }
               .desc{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                width: 90%;
+                width: 100%;
                 height: 100%;
-                padding: 0px 30px;
                 p{
                   &:first-child{
                     font-size: 1.4em;
@@ -196,7 +206,7 @@ export const RecoGames = styled.div`
               }
             }
             .game_img{
-              width: 10%;
+              width: 35%;
               border-radius: 15px;
               overflow: hidden;
               img{

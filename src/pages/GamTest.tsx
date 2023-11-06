@@ -1,19 +1,17 @@
 import React, { useState } from 'react'
-import { GamTestWrap } from '../css/GamTestStyle'
-import GamTestNotice from '../component/GamTestNotice'
-import GamSurvey from '../component/GamSurvey'
+import GamTestIntro from '../component/GamTestIntro'
+import GamTestMain from '../component/GamTestMain';
+import { GamTestWrap } from '../css/GamTestStyle';
 
 const GamTest = () => {
-  const [NoteCheck , setNoteCheck] = useState(true);
-  const [Survey , setSurvey] = useState(false);
+  const [display, setDisplay] = useState<boolean>(true);
+
   return (
     <GamTestWrap>
-      <div className='inner'>
-        <GamTestNotice />
-        <GamSurvey />
-      </div>
+      {display && <GamTestIntro setDisplay={setDisplay} />}
+      {display || <GamTestMain />}
     </GamTestWrap>
   )
 }
 
-export default GamTest
+export default GamTest;

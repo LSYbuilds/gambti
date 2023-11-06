@@ -1,10 +1,13 @@
 import React from 'react'
+import { InfoModalStyle } from '../css/ModalShareStyle'
 
 const GambtiInfoModal = () => {
   return (
-    <div>
-      
-    </div>
+    <InfoModalStyle>
+      <div className='modal_inner'>
+
+      </div>
+    </InfoModalStyle>
   )
 }
 

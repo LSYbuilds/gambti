@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 const path = process.env.PUBLIC_URL;
 interface HeaderWrapProps {
   isToggled: boolean;
+  isanime: boolean;
 }
 
 export const HeaderWrap = styled.div<HeaderWrapProps>`
@@ -124,9 +125,10 @@ export const HeaderWrap = styled.div<HeaderWrapProps>`
       height: 100vh;
       background: rgba(0, 0, 0, 0.5);
       overflow: hidden;
+      transition-duration: 0.1s;
       .mobile_inner {
         position: absolute;
-        right: 0%;
+        right:0px;
         top: 0px;
         display: block;
         flex-direction: column;
@@ -135,7 +137,7 @@ export const HeaderWrap = styled.div<HeaderWrapProps>`
         background: #fff;
         border-left: 2px solid #fff;
         transition: right 0.3s ease-in;
-        transition-duration: 0.3s;
+        transition-duration: 0.4s;
         .close_btn {
           width: 100%;
           height: 50px;
@@ -174,9 +176,19 @@ export const HeaderWrap = styled.div<HeaderWrapProps>`
           }
         }
       }
-      .active {
-        right: 0%;
+      /* .m_inner_anime{
+        right: -100% !important;
       }
+      .m_inner_anime-active{
+        right: 0% !important;
+        transition: right ease-in;
+      }
+      .m_inner_anime-exit{
+        right: 0% !important;
+      }
+      .m_inner_anime-exit-active{
+        right: -50% !important;
+      } */
     }
   }
   @media screen and (max-width: 641px) {

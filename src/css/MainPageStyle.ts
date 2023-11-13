@@ -79,6 +79,69 @@ export const MainpageWrap = styled.div`
       width: 100%;
     }
   }
+  @media screen and (max-width: 1600px) {
+    .bg_shape {
+      top: 250px;
+      height: 500px;
+    }
+    .inner {
+      width: 90%;
+      .select_category {
+        height: 500px;
+      }
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .inner {
+      .bg_shape {
+        top: 250px;
+        height: 400px;
+      }
+      .select_category {
+        height: 400px;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .inner {
+      .main_title{
+        width: 100%;  
+        align-items: center;
+        span{
+          display: block;
+          width: 100%;
+          text-align: center;
+        }
+      }
+      .select_category {
+        height: 50vw;
+        div{
+          button{
+            margin: 0;
+            width: 80%;
+            height: 35px;
+            font-size: 1.2em;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 641px) {
+    .inner{
+      .select_category{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 70vw;
+        div{
+          width: 100%;
+        }
+      }
+      .bg_shape {
+        display: none;
+      }
+    }
+  }
 `;
 
 export const RecoGames = styled.div`
@@ -139,14 +202,14 @@ export const RecoGames = styled.div`
           justify-content: center;
           width: 100%;
           height: 50px;
-          .title_img{
+          .title_img {
             width: auto;
             height: 65%;
-            img{
+            img {
               height: 100%;
             }
           }
-          span{
+          span {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -171,7 +234,7 @@ export const RecoGames = styled.div`
             text-align: center;
           }
         } */
-        .game_list{
+        .game_list {
           margin-top: 15px;
           display: flex;
           flex-direction: column;
@@ -179,37 +242,37 @@ export const RecoGames = styled.div`
           width: 100%;
           height: auto;
 
-          li{
+          li {
             display: flex;
             justify-content: space-between;
             width: 100%;
             height: 150px;
             padding: 15px;
-            border: 1px solid #C5C5C5;
+            border: 1px solid #c5c5c5;
             border-radius: 15px;
-            .info{
+            .info {
               display: flex;
               flex-direction: row;
               width: 50%;
               height: 100%;
-              .desc{
+              .desc {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 width: 100%;
                 height: 100%;
-                p{
-                  &:first-child{
+                p {
+                  &:first-child {
                     font-size: 1.4em;
                   }
                 }
               }
             }
-            .game_img{
+            .game_img {
               width: 35%;
               border-radius: 15px;
               overflow: hidden;
-              img{
+              img {
                 height: 100%;
               }
             }

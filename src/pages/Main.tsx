@@ -5,6 +5,8 @@ import {
   getRecoGameConsole,
   getRecoGameMobile,
 } from '../api/mainFetch';
+import { getResultGame } from '../api/resultFetch';
+
 
 interface recoGame {
   rank: number;
@@ -21,6 +23,16 @@ const Main = () => {
   const [recoGameConsole, setRecoGameConsole] = useState<recoGame[]>([]);
   // 모버일인기
   const [recoGameMobile, setRecoGameMobile] = useState<recoGame[]>([]);
+
+
+  const ResultGameData = async () => {
+    try{
+      const res = await getResultGame();
+      console.log('결과데이터',res);
+    }catch(err){
+      console.log(err);
+    }
+  }
 
   const RecoGamePC = async () => {
     try {
@@ -56,6 +68,7 @@ const Main = () => {
     void RecoGamePC();
     void RecoGameMobile();
     void RecoGameConsole();
+    void ResultGameData();
   }, []);
 
   return (

@@ -281,4 +281,26 @@ export const RecoGames = styled.div`
       }
     }
   }
+  @media screen and (max-width: 1600px) {
+    .reco_games_inner{
+      width: 90%;
+      .reco_game_list{
+        .game_list{
+          li{
+            .game_img{
+              img{
+                width: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1024px) {
+  }
+  @media screen and (max-width: 768px) {
+  }
+  @media screen and (max-width: 641px) {
+  }
 `;

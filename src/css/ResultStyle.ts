@@ -103,11 +103,12 @@ export const GoodGam = styled.div`
   flex-direction: column;
   margin: 0 auto;
   ul {
+    display: flex;
     text-align: left;
     li {
       .reco_game_img {
         width: 300px;
-        height: 300px;
+        height: 600px;
         border-radius: 20px;
         overflow: hidden;
         img {

@@ -103,7 +103,7 @@ const Main = () => {
             <span className="banner_text">인기게임</span>
           </div>
           <div className="reco_game_list">
-            <div className="pc_reco">
+            <div className="reco_result">
               <div className="list_title">
                 <div className="title_img">
                   <img src="image/pc.png"></img>
@@ -127,7 +127,7 @@ const Main = () => {
                 ))}
               </ul>
             </div>
-            <div className="console_reco">
+            <div className="reco_result">
               <div className="list_title">
                 <div className="title_img">
                   <img src="image/console.png"></img>
@@ -151,7 +151,7 @@ const Main = () => {
                 ))}
               </ul>
             </div>
-            <div className="mobile_reco">
+            <div className="reco_result">
               <div className="list_title">
                 <div className="title_img">
                   <img src="image/mobile.png"></img>

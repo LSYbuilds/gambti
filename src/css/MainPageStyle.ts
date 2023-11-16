@@ -104,10 +104,10 @@ export const MainpageWrap = styled.div`
   }
   @media screen and (max-width: 768px) {
     .inner {
-      .main_title{
-        width: 100%;  
+      .main_title {
+        width: 100%;
         align-items: center;
-        span{
+        span {
           display: block;
           width: 100%;
           text-align: center;
@@ -115,8 +115,8 @@ export const MainpageWrap = styled.div`
       }
       .select_category {
         height: 50vw;
-        div{
-          button{
+        div {
+          button {
             margin: 0;
             width: 80%;
             height: 35px;
@@ -127,13 +127,13 @@ export const MainpageWrap = styled.div`
     }
   }
   @media screen and (max-width: 641px) {
-    .inner{
-      .select_category{
+    .inner {
+      .select_category {
         display: flex;
         flex-direction: column;
         gap: 10px;
         height: 70vw;
-        div{
+        div {
           width: 100%;
         }
       }
@@ -282,14 +282,15 @@ export const RecoGames = styled.div`
     }
   }
   @media screen and (max-width: 1600px) {
-    .reco_games_inner{
+    .reco_games_inner {
       width: 90%;
-      .reco_game_list{
-        .game_list{
-          li{
-            .game_img{
-              img{
-                width: auto;
+      .reco_game_list {
+        .game_list {
+          li {
+            .game_img {
+              width: 118px;
+              img {
+                height: 100%;
               }
             }
           }
@@ -298,9 +299,60 @@ export const RecoGames = styled.div`
     }
   }
   @media screen and (max-width: 1024px) {
+    .reco_game_list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .reco_result {
+        margin-top: 20px;
+        width: 100% !important;
+      }
+    }
   }
   @media screen and (max-width: 768px) {
   }
   @media screen and (max-width: 641px) {
+    .banner_logo {
+      height: 75px !important;
+      background-size: 50% !important;
+    }
+    .game_list {
+      li {
+        display: block;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        .info {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 100% !important;
+          height: 100%;
+          z-index: 100;
+          span {
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+          }
+        }
+        .game_img {
+          display: block;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 100% !important;
+          height: 100%;
+          background: #000;
+          img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.5;
+            height: 300% !important;
+          }
+        }
+      }
+    }
   }
 `;

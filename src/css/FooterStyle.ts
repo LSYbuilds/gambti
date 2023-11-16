@@ -66,4 +66,29 @@ export const FooterWrap = styled.div`
       }
     }
   }
+  @media screen and (max-width: 1600px) {
+    .inner{
+      width: 90%;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+  }
+  @media screen and (max-width: 768px) {
+    height: auto;
+    .inner{
+      .footer_nav{
+        ul{
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px;
+          li{
+            border: none !important;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 641px) {
+  }
 `;

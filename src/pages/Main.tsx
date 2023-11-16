@@ -5,6 +5,8 @@ import {
   getRecoGameConsole,
   getRecoGameMobile,
 } from '../api/mainFetch';
+import { getResultGame } from '../api/resultFetch';
+
 
 interface recoGame {
   rank: number;
@@ -21,6 +23,16 @@ const Main = () => {
   const [recoGameConsole, setRecoGameConsole] = useState<recoGame[]>([]);
   // 모버일인기
   const [recoGameMobile, setRecoGameMobile] = useState<recoGame[]>([]);
+
+
+  const ResultGameData = async () => {
+    try{
+      const res = await getResultGame();
+      console.log('결과데이터',res);
+    }catch(err){
+      console.log(err);
+    }
+  }
 
   const RecoGamePC = async () => {
     try {
@@ -56,6 +68,7 @@ const Main = () => {
     void RecoGamePC();
     void RecoGameMobile();
     void RecoGameConsole();
+    void ResultGameData();
   }, []);
 
   return (
@@ -90,7 +103,7 @@ const Main = () => {
             <span className="banner_text">인기게임</span>
           </div>
           <div className="reco_game_list">
-            <div className="pc_reco">
+            <div className="reco_result">
               <div className="list_title">
                 <div className="title_img">
                   <img src="image/pc.png"></img>
@@ -114,7 +127,7 @@ const Main = () => {
                 ))}
               </ul>
             </div>
-            <div className="console_reco">
+            <div className="reco_result">
               <div className="list_title">
                 <div className="title_img">
                   <img src="image/console.png"></img>
@@ -138,7 +151,7 @@ const Main = () => {
                 ))}
               </ul>
             </div>
-            <div className="mobile_reco">
+            <div className="reco_result">
               <div className="list_title">
                 <div className="title_img">
                   <img src="image/mobile.png"></img>

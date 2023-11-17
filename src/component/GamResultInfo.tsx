@@ -25,14 +25,43 @@ const GamResultInfo = () => {
         <span>추천 게임</span>
         <ul>
           <li>
-            <div className='reco_game_img'>
+            <div className="reco_game_img">
               <img src="image/Result_Test.jpg" alt="눈치.." />
             </div>
             <ul>
               <li>올드 스쿨</li>
               <li>플랫폼 : PC, 비디오</li>
               <li>장르: 시뮬레이션, 액션</li>
-              <li>서비스 상태</li>
+            </ul>
+          </li>
+          <li>
+            <div className="reco_game_img">
+              <img src="image/Result_Test.jpg" alt="눈치.." />
+            </div>
+            <ul>
+              <li>올드 스쿨</li>
+              <li>플랫폼 : PC, 비디오</li>
+              <li>장르: 시뮬레이션, 액션</li>
+            </ul>
+          </li>
+          <li>
+            <div className="reco_game_img">
+              <img src="image/Result_Test.jpg" alt="눈치.." />
+            </div>
+            <ul>
+              <li>올드 스쿨</li>
+              <li>플랫폼 : PC, 비디오</li>
+              <li>장르: 시뮬레이션, 액션</li>
+            </ul>
+          </li>
+          <li>
+            <div className="reco_game_img">
+              <img src="image/Result_Test.jpg" alt="눈치.." />
+            </div>
+            <ul>
+              <li>올드 스쿨</li>
+              <li>플랫폼 : PC, 비디오</li>
+              <li>장르: 시뮬레이션, 액션</li>
             </ul>
           </li>
         </ul>

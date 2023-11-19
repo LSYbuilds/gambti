@@ -1,22 +1,53 @@
 import React, { useState } from 'react';
-import { Container, GamInfoWarp, GameInfoTitle } from '../css/GameInfoStyle';
+import {
+  Container,
+  GamInfoWarp,
+  GameInfoTitle,
+  PreviewGambti,
+} from '../css/GameInfoStyle';
 import GambtiInfoModal from '../modal/GambtiInfoModal';
 
+interface GambtiModalProps {
+  modal: boolean;
+  isModal: boolean;
+}
+
+interface GambtiData {
+  img: string;
+  maintitle: string;
+  eng: string;
+  note: string;
+  genre: string;
+  reco: string;
+}
+
 const GamInfo = () => {
-  interface GambtiModalProps {
-    modal: boolean;
-    isModal: boolean;
-  }
   const [ismodal, setOpenModal] = useState<boolean>(false);
+  const mbtiData = [
+    {
+      img: 'image/mbti/E.png',
+      maintitle: '외향형',
+      eng: 'Extraverstion',
+      note: 'E형의 특징은 폭넓은 대인관계를 유지하려는 경향이 있으며 사교적인 특징과 어떠한 일에 대한 열정이 있는 활동적인 특징을 가지고 있습니다.이러한 특징은 대개 팀플레이 위주로 진행되는 협동이 필요한 컨텐츠를 즐기기를 추천드립니다.',
+      genre: ['MMORPG', '온라인협동', 'PVP', '대전격투'],
+      reco: ['리그오브레전드', '오버워치', '도타', '이터널리턴'],
+    },
+  ];
   return (
     <GamInfoWarp>
-      {ismodal && (<GambtiInfoModal/>) }
+      {ismodal && <GambtiInfoModal />}
       <div className="inner">
         <GameInfoTitle>
-          <span>GAMBTI 유형</span>
-          자신의 MBTI 유형에 맞는 정보를 알아 봅시다 ! !
+          <span className="title">GAMBTI 유형</span>
+          <span className="sub_title">
+            자신의 MBTI 성격에 따른 유형을 확인해보세요
+          </span>
         </GameInfoTitle>
         <Container>
+          <div className="result_item">
+            <div className="card_img"></div>
+            <div className="text_area"></div>
+          </div>
           <div className="item">
             <div className="item_img">
               <img src="image/mbti/E.png" alt="눈치.." />
@@ -98,6 +129,7 @@ const GamInfo = () => {
             </span>
           </div>
         </Container>
+        <PreviewGambti></PreviewGambti>
       </div>
     </GamInfoWarp>
   );

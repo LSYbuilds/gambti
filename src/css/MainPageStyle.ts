@@ -288,8 +288,15 @@ export const RecoGames = styled.div`
         .game_list {
           li {
             .game_img {
+              position: relative;
               width: 118px;
+              overflow: hidden;
               img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: max-content;
                 height: 100%;
               }
             }
@@ -303,6 +310,24 @@ export const RecoGames = styled.div`
       display: flex;
       flex-direction: column;
       gap: 20px;
+      .game_list {
+        li {
+          .game_img {
+            position: relative;
+            width: 118px;
+            overflow: hidden;
+            background: #191919;
+            img {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: max-content;
+              height: 100%;
+            }
+          }
+        }
+      }
       .reco_result {
         margin-top: 20px;
         width: 100% !important;

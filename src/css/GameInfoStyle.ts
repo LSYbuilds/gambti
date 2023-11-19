@@ -5,31 +5,42 @@ const path = process.env.PUBLIC_URL;
 export const GamInfoWarp = styled.div`
   width: 100%;
   height: auto;
-  .inner{
+  .inner {
     margin: 0 auto;
     width: 1400px;
     height: 100%;
+    padding-top: 50px;
     padding-bottom: 100px;
   }
 `;
 
 export const GameInfoTitle = styled.div`
-  span {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    font-size: 30px;
-    font-weight: bold;
-    padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  background-image: url(${path}/image/GamInfo.jpg);
+  background-size: contain;
+  background-position: center;
+  border-radius: 15px;
+  .title {
+    color: #fff;
+    font-size: 3.5em;
+    text-align: center;
+    font-family: 'SUIT-Heavy';
   }
-  text-align: center;
-  font-size: 20px;
+  .sub_title {
+    color: #fff;
+  }
 `;
 
 export const Container = styled.div`
+  margin-top: 50px;
+  position: relative;
   display: grid;
   justify-content: center;
-  padding: 50px 100px 50px 100px;
   width: 100%;
   height: 100%;
   border-radius: 15px;
@@ -82,15 +93,40 @@ export const Container = styled.div`
       font-size: 1.4em;
       text-align: center;
       font-family: 'SUIT-Bold';
-      color:#fff;
+      color: #fff;
     }
     &:hover {
       background: rgba(74, 193, 195, 1);
-      .item_img{
-        img{
+      .item_img {
+        img {
           height: 80%;
         }
       }
     }
   }
+  .result_item {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background: skyblue;
+    z-index: 100;
+    border-radius: 15px;
+    overflow: hidden;
+    .card_img {
+      width: 50%;
+      height: 100%;
+      background: red;
+    }
+    .text_area {
+      width: 50%;
+      height: 100%;
+      background: gainsboro;
+    }
+  }
 `;
+
+export const PreviewGambti = styled.div``;

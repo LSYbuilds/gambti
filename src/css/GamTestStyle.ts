@@ -21,8 +21,8 @@ export const GameTestIntroWrap = styled.div`
 
   position: relative;
   z-index: 5;
-  &::after{
-    content: "";
+  &::after {
+    content: '';
     opacity: 0.5;
     position: absolute;
     top: 0px;
@@ -59,7 +59,7 @@ export const GameTestIntroWrap = styled.div`
     padding: 5px 40px;
     border-color: transparent;
     border-radius: 30px;
-    background-color: #CBF9FF;
+    background-color: #cbf9ff;
     font-size: 1.4rem;
     font-weight: 700;
   }
@@ -75,12 +75,12 @@ const commonBox = `
   height: 24%;
   border-radius: 15px;
   font-size: 1.15rem;
-`
+`;
 export const GamTestMainWrap = styled.div`
   padding: 20px;
   border-radius: 15px;
-  background-color: #F0F0F0;
-  
+  background-color: #f0f0f0;
+
   .inner {
     width: 86%;
     margin: 0 auto;
@@ -140,6 +140,6 @@ export const GamTestProgress = styled.div`
     width: 21px;
     height: 8px;
     border-radius: 30px;
-    background-color: #B6BDFA;
+    background-color: #b6bdfa;
   }
 `;

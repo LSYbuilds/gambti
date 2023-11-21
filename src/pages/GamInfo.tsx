@@ -6,6 +6,9 @@ import {
   PreviewGambti,
 } from '../css/GameInfoStyle';
 import GambtiInfoModal from '../modal/GambtiInfoModal';
+import gambtiJson from '../api/gambti.json';
+import { faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface GambtiModalProps {
   modal: boolean;
@@ -17,25 +20,24 @@ interface GambtiData {
   maintitle: string;
   eng: string;
   note: string;
-  genre: string;
-  reco: string;
+  genre: string[];
+  reco: string[];
 }
 
 const GamInfo = () => {
   const [ismodal, setOpenModal] = useState<boolean>(false);
-  const mbtiData = [
-    {
-      img: 'image/mbti/E.png',
-      maintitle: '외향형',
-      eng: 'Extraverstion',
-      note: 'E형의 특징은 폭넓은 대인관계를 유지하려는 경향이 있으며 사교적인 특징과 어떠한 일에 대한 열정이 있는 활동적인 특징을 가지고 있습니다.이러한 특징은 대개 팀플레이 위주로 진행되는 협동이 필요한 컨텐츠를 즐기기를 추천드립니다.',
-      genre: ['MMORPG', '온라인협동', 'PVP', '대전격투'],
-      reco: ['리그오브레전드', '오버워치', '도타', '이터널리턴'],
-    },
-  ];
+  const [showInfo, setShowInfo] = useState<GambtiData | null>(null);
+  const [infoTrigger, setInfoTrigger] = useState<boolean>(false);
+  const gambtiData = gambtiJson.mbtiData;
+
+  const mbtiClick = (index: number, item: GambtiData) => {
+    setShowInfo(gambtiData[index]);
+    console.log(gambtiData[index]);
+  };
   return (
     <GamInfoWarp>
-      {ismodal && <GambtiInfoModal />}
+      <div className="bg_shape_top"></div>
+      <div className="bg_shape_mid"></div>
       <div className="inner">
         <GameInfoTitle>
           <span className="title">GAMBTI 유형</span>
@@ -43,92 +45,76 @@ const GamInfo = () => {
             자신의 MBTI 성격에 따른 유형을 확인해보세요
           </span>
         </GameInfoTitle>
-        <Container>
+        <Container infoTrigger={infoTrigger}>
           <div className="result_item">
-            <div className="card_img"></div>
-            <div className="text_area"></div>
-          </div>
-          <div className="item">
-            <div className="item_img">
-              <img src="image/mbti/E.png" alt="눈치.." />
+            <div className="card_img">
+              <img src={showInfo?.img}></img>
             </div>
-            <span>
-              E 외향형
-              <br />
-              Extraverstion
-            </span>
-          </div>
-          <div className="item">
-            <div className="item_img">
-              <img src="image/mbti/S.png" alt="눈치.." />
+            <div className="text_area">
+              <div className="text_inner">
+                <span className="card_title">
+                  <p>{showInfo?.maintitle}</p>
+                  <p>{showInfo?.eng}</p>
+                </span>
+                <div className="card_text">{showInfo?.note}</div>
+                <div className="reco_box">
+                  <div className="reco_genre">
+                    <span>추천장르</span>
+                    {showInfo?.genre.map((item, index) => (
+                      <ul className="genre_list" key={index}>
+                        <li>{item}</li>
+                      </ul>
+                    ))}
+                  </div>
+                  <div className="reco_games">
+                    <span>추천게임</span>
+                    {showInfo?.reco.map((item, index) => (
+                      <ul className="game_list" key={index}>
+                        <li>{item}</li>
+                      </ul>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
-            <span>
-              S 감각형
-              <br />
-              Sensing
-            </span>
+            <button
+              className="close_btn"
+              onClick={() => {
+                setInfoTrigger(!infoTrigger);
+              }}
+            >
+              닫기
+              <i>
+                <FontAwesomeIcon icon={faArrowRightToBracket} />
+              </i>
+            </button>
           </div>
-          <div className="item">
-            <div className="item_img">
-              <img src="image/mbti/T.png" alt="눈치.." />
+          {gambtiData.map((item, index) => (
+            <div
+              className="item"
+              key={index}
+              onClick={() => {
+                mbtiClick(index, item);
+                setInfoTrigger(!infoTrigger);
+              }}
+            >
+              <div className="item_img">
+                <img src={item.img} alt="눈치.." />
+              </div>
+              <span>
+                {item.maintitle}
+                <br />
+                {item.eng}
+              </span>
             </div>
-            <span>
-              T 사고형
-              <br />
-              Thinking
-            </span>
-          </div>
-          <div className="item">
-            <div className="item_img">
-              <img src="image/mbti/J.png" alt="눈치.." />
-            </div>
-            <span>
-              J 판단형
-              <br />
-              Judging
-            </span>
-          </div>
-          <div className="item">
-            <div className="item_img">
-              <img src="image/mbti/I.png" alt="눈치.." />
-            </div>
-            <span>
-              I 내향형
-              <br />
-              Introversion
-            </span>
-          </div>
-          <div className="item">
-            <div className="item_img">
-              <img src="image/mbti/N.png" alt="눈치.." />
-            </div>
-            <span>
-              N 직관형
-              <br />
-              iNtuition
-            </span>
-          </div>
-          <div className="item">
-            <div className="item_img">
-              <img src="image/mbti/F.png" alt="눈치.." />
-            </div>
-            <span>
-              F 감정형
-              <br />
-              Feeling
-            </span>
-          </div>
-          <div className="item">
-            <div className="item_img">
-              <img src="image/mbti/P.png" alt="눈치.." />
-            </div>
-            <span>
-              P 인식형
-              <br />
-              Perceiving
-            </span>
-          </div>
+          ))}
         </Container>
+        <GameInfoTitle>
+          <span className="title">GAMBTI 결과 미리보기</span>
+          <span className="sub_title">
+            자신의 MBTI 성격에 따른 유형을 확인해보세요
+          </span>
+        </GameInfoTitle>
         <PreviewGambti></PreviewGambti>
       </div>
     </GamInfoWarp>

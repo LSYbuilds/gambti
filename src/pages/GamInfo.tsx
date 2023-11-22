@@ -115,7 +115,18 @@ const GamInfo = () => {
             자신의 MBTI 성격에 따른 유형을 확인해보세요
           </span>
         </GameInfoTitle>
-        <PreviewGambti></PreviewGambti>
+        <PreviewGambti>
+          <ul className='mbti_list'>
+            {gambtiJson.mbtiImg.map((item,index) => (
+              <li key={index}>
+                <img src={item.paht}></img>
+              </li>
+            ))}
+          </ul>
+          <div className='mbti_list'>
+
+          </div>
+        </PreviewGambti>
       </div>
     </GamInfoWarp>
   );

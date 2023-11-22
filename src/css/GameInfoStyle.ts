@@ -263,6 +263,35 @@ export const Container = styled.div<InfoTriggerProps>`
 `;
 
 export const PreviewGambti = styled.div`
+  position: relative;
   width: 100%;
-  height: 800px;
+  height: auto;
+  .mbti_list{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+    padding: 30px;
+    border-radius: 15px;
+    background: #191919;
+    li{
+      position: relative;
+      width: 100%;
+      height: 200px;
+      background: #fff;
+      border-radius: 15px;
+      img{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        height:85%;
+      }
+    }
+  }
 `;

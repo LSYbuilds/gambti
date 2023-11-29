@@ -262,11 +262,16 @@ export const Container = styled.div<InfoTriggerProps>`
   }
 `;
 
-export const PreviewGambti = styled.div`
+interface ResultTriggerProps {
+  mbtiTrigger: boolean;
+}
+
+
+export const PreviewGambti = styled.div<ResultTriggerProps>`
   position: relative;
   width: 100%;
   height: auto;
-  .mbti_list{
+  .mbti_list {
     margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -276,22 +281,70 @@ export const PreviewGambti = styled.div`
     width: 100%;
     height: 100%;
     gap: 20px;
-    padding: 30px;
     border-radius: 15px;
     background: #191919;
-    li{
+    li {
       position: relative;
       width: 100%;
       height: 200px;
-      background: #fff;
+      border: 2px solid #828282;
       border-radius: 15px;
-      img{
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-        height:85%;
+      background-image: url(${path}/image/mbtibg.jpg);
+      background-size: contain;
+      cursor: pointer;
+      &:hover {
+        background: rgba(74, 193, 195, 1);
       }
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 85%;
+      }
+    }
+  }
+  .mbti_result {
+    display: ${props => (props.mbtiTrigger ? 'flex' : 'none')};
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: gainsboro;
+    z-index: 300;
+    background: skyblue;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.9);
+    animation-name: ${props => (props.mbtiTrigger ? 'slideResult' : '')};
+    animation-duration: 0.3s;
+    .close_btn {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px;
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      z-index: 200;
+      width: auto;
+      height: 50px;
+      background: #4a7a96;
+      border: none;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 1.3em;
+      font-family: 'SUIT-Bold';
+      &:hover {
+        background: #4f94bd;
+      }
+    }
+  }
+  @keyframes slideResult {
+    from {
+      right: -100%;
+    }
+    to {
+      right: 0%;
     }
   }
 `;

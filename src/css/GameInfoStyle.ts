@@ -266,13 +266,14 @@ interface ResultTriggerProps {
   mbtiTrigger: boolean;
 }
 
-
 export const PreviewGambti = styled.div<ResultTriggerProps>`
+  margin-top: 50px;
   position: relative;
   width: 100%;
   height: auto;
+  overflow: hidden;
+  border-radius: 15px;
   .mbti_list {
-    margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -306,6 +307,7 @@ export const PreviewGambti = styled.div<ResultTriggerProps>`
   }
   .mbti_result {
     display: ${props => (props.mbtiTrigger ? 'flex' : 'none')};
+    justify-content: space-between;
     position: absolute;
     top: 0px;
     width: 100%;
@@ -317,6 +319,66 @@ export const PreviewGambti = styled.div<ResultTriggerProps>`
     background: rgba(0, 0, 0, 0.9);
     animation-name: ${props => (props.mbtiTrigger ? 'slideResult' : '')};
     animation-duration: 0.3s;
+    .img_area {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 3%;
+      justify-content: center;
+      align-items: center;
+      background-image: url(${path}/image/mbtibg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      .img_box {
+        display: block;
+        position: relative;
+        width: 50%;
+        height: 50%;
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          height: 100%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .mbti_name {
+        font-size: 3.6em;
+        color: #fff;
+        font-family: 'SUIT-Bold';
+      }
+    }
+    .reco_area {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      height: 100%;
+      padding: 5%;
+      .desc {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        margin-top: 5%;
+        color: #fff;
+      }
+      .result_list{
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        color:#fff;
+        div{
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+          h2{
+            display: block;
+            width: 100%;
+            text-align: center;
+          }
+          
+        }
+      }
+    }
     .close_btn {
       display: flex;
       justify-content: flex-end;

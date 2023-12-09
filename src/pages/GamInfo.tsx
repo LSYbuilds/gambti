@@ -23,19 +23,19 @@ interface GambtiData {
 interface GambtiResultData {
   mbti: string;
   img: string;
-  description:string;
-  analysis:string;
-  recGenre:string[];
-  genreId:number;
-  name:string;
-  recGame:string[];
-  platform:string[];
-  genre:string[];
+  description: string;
+  analysis: string;
+  recGenre: string[];
+  genreId: number;
+  name: string;
+  recGame: string[];
+  platform: string[];
+  genre: string[];
 }
 
 interface mabiName {
-  mabiName:string;
-  setMbtiName:string;
+  mabiName: string;
+  setMbtiName: string;
 }
 
 const GamInfo = () => {
@@ -43,8 +43,8 @@ const GamInfo = () => {
   const [showInfo, setShowInfo] = useState<GambtiData | null>(null);
   const [infoTrigger, setInfoTrigger] = useState<boolean>(false);
   const [mbtiTrigger, setMbtiTrigger] = useState<boolean>(false);
-  const [mabiName, setMbtiName] = useState<string>("");
-  const [mbtiResultData , setMbtiResultData] = useState<GambtiResultData>({
+  const [mabiName, setMbtiName] = useState<string>('');
+  const [mbtiResultData, setMbtiResultData] = useState<GambtiResultData>({
     mbti: '',
     img: '',
     description: '',
@@ -57,7 +57,6 @@ const GamInfo = () => {
     genre: [],
   });
 
-
   const gambtiData = gambtiJson.mbtiData;
 
   const mbtiClick = (index: number, item: GambtiData) => {
@@ -65,27 +64,24 @@ const GamInfo = () => {
     console.log(gambtiData[index]);
   };
 
-
-  const gambtiDataResult = async(props: string) => {
-    try{
+  const gambtiDataResult = async (props: string) => {
+    try {
       setMbtiName(props);
       await testData(props);
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
+  };
 
-  }
-
-  const testData = async (props:string) => {
+  const testData = async (props: string) => {
     try {
       const res = await getResultGame(props);
       setMbtiResultData(res);
-      console.log("Data:", res);
+      console.log('Data:', res);
     } catch (err) {
       console.error(err);
     }
   };
-
 
   return (
     <GamInfoWarp>
@@ -169,37 +165,49 @@ const GamInfo = () => {
           </span>
         </GameInfoTitle>
         <PreviewGambti mbtiTrigger={mbtiTrigger}>
-          <ul className='mbti_list'>
-            {gambtiJson.mbtiImg.map((item,index) => (
-              <li key={index} onClick={() => {
-                void gambtiDataResult(item.name);
-                setMbtiTrigger(!mbtiTrigger);
-              }}>
+          <ul className="mbti_list">
+            {gambtiJson.mbtiImg.map((item, index) => (
+              <li
+                key={index}
+                onClick={() => {
+                  void gambtiDataResult(item.name);
+                  setMbtiTrigger(!mbtiTrigger);
+                }}
+              >
                 <img src={item.paht}></img>
               </li>
             ))}
           </ul>
-          <div className='mbti_result'>
-            <div className='img_area'>
-              <img src={mbtiResultData.img}></img>
-              <span className='mbti_name'></span>
-            </div>
-            <div className='reco_area'>
-              <span>
-                <p></p>
-                <p></p>
+          <div className="mbti_result">
+            <div className="img_area">
+              <span className='img_box'>
+                <img src={mbtiResultData.img}></img>
               </span>
-              <ul className='genre_list'>
-
-              </ul>
-              <ul className='game_list'>
-
-              </ul>
+              <span className="mbti_name">{mbtiResultData.mbti}</span>
             </div>
-          <button
+            <div className="reco_area">
+              <div className='desc'>
+                <span>
+                  <h2>MBTI 분석</h2>
+                  <p>{mbtiResultData.description}</p>
+                </span>
+                <span>
+                  <h2>GAMBTI 분석</h2>
+                  <p>{mbtiResultData.analysis}</p>
+                </span>
+              </div>
+              <div className="result_list">
+                <div className='genre_box'>
+                  <h2>추천장르</h2>
+                </div>
+                <div className='recgame_box'>
+                  <h2>추천게임</h2>
+                </div>
+              </div>
+            </div>
+            <button
               className="close_btn"
-              onClick={() => {
-                setInfoTrigger(!infoTrigger);
+              onClick={() => {  
                 setMbtiTrigger(!mbtiTrigger);
               }}
             >

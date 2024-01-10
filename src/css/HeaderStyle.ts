@@ -128,16 +128,17 @@ export const HeaderWrap = styled.div<HeaderWrapProps>`
       transition-duration: 0.1s;
       .mobile_inner {
         position: absolute;
-        right:0px;
+        right: 0px;
         top: 0px;
         display: block;
         flex-direction: column;
         width: 65%;
         height: 100vh;
         background: #fff;
-        border-left: 2px solid #fff;
         transition: right 0.3s ease-in;
         transition-duration: 0.4s;
+        animation-name: ${props => (props.isToggled ? 'openNavi' : '')};
+        animation-duration: 0.3s;
         .close_btn {
           width: 100%;
           height: 50px;
@@ -160,14 +161,23 @@ export const HeaderWrap = styled.div<HeaderWrapProps>`
             height: 100%;
             text-align: right;
             a {
-              display: flex;
+              display: block;
               padding: 5px 0px 5px 0px;
-              height: 100%;
+              width: 100%;
+              height: auto;
               flex-direction: column;
               justify-content: center;
               font-family: 'SUIT-Regular';
               color: #000;
               font-size: 1.3em;
+              span {
+                width: auto;
+                height: 100%;
+              }
+              i {
+                margin-left: 20px;
+                width: auto;
+              }
             }
             &:hover {
               background: #f2f2f2;
@@ -175,20 +185,33 @@ export const HeaderWrap = styled.div<HeaderWrapProps>`
             }
           }
         }
+        .mobile_logo {
+          position: absolute;
+          bottom: 0px;
+          left: 0px;
+          width: 100%;
+          height: 75px;
+          background: #000;
+          a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-image: url(${path}/image/logo.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 50% 25%;
+            background-size: 50%;
+          }
+        }
       }
-      /* .m_inner_anime{
-        right: -100% !important;
+      @keyframes openNavi {
+        from {
+          right: -100%;
+        }
+        to {
+          right: 0%;
+        }
       }
-      .m_inner_anime-active{
-        right: 0% !important;
-        transition: right ease-in;
-      }
-      .m_inner_anime-exit{
-        right: 0% !important;
-      }
-      .m_inner_anime-exit-active{
-        right: -50% !important;
-      } */
     }
   }
   @media screen and (max-width: 641px) {

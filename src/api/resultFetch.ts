@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const getResultGame = async () => {
+const getResultGame = async (props:string) => {
     try {
-      const res = await axios.get(`/api/result?mbti=estp`);
+      const res = await axios.get(`/api/result?mbti=${props}`);
       const data = res.data;
       return data;
     } catch (error) {

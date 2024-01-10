@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/api",
     createProxyMiddleware({
-      target: "https://port-0-gambti-12fhqa2llo8qkrut.sel5.cloudtype.app/",
+      target: "http://gambti.ap-northeast-2.elasticbeanstalk.com/",
       changeOrigin: true,
       secure: true,
       pathRewrite: {
